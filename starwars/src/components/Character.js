@@ -40,8 +40,7 @@ const P = styled.h4 `
 
 const Character = (props) => {
     const characters = props
-    const getData = props
-
+    const getData = props    
 
     return (
         <div>
@@ -52,7 +51,7 @@ const Character = (props) => {
                             <div>
                                 <H2>Name: {character.name}</H2>
                                 {character.starships.map(starship =>{
-                                    return <Starships key={starship} starship={starship} getData={getData}/>
+                                    return <Starships starship={starship} getData={getData}/>
                                 })}
                             </div>
                             <div>

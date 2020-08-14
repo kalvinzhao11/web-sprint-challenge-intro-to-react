@@ -4,10 +4,11 @@ import axios from 'axios'
 const Starships = (props) => {
     const starship = props
     const getData = props
+    const character = props
     const [ss, setss] = useState()
     // const ss = props
     // const setss = props
-    console.log(starship.starship)
+    // console.log(character)
 
     useEffect(() => {
         axios.get(starship.starship)
@@ -18,15 +19,15 @@ const Starships = (props) => {
             .catch(error =>{
 
             })
-        Promise.all([])
-            .then(response => {
-                setss(response)
-                console.log(response)
-                // debugger
-            })
-            .catch(error => {
-                debugger
-            })
+    //     Promise.all([])
+    //         .then(response => {
+    //             setss(response)
+    //             console.log(response)
+    //             // debugger
+    //         })
+    //         .catch(error => {
+    //             debugger
+    //         })
     },[ss])
     // console.log(ss)
     // useEffect(() => {
@@ -38,11 +39,17 @@ const Starships = (props) => {
     //         </div>
     //     )
     // },[]) 
-    if (!ss) return  <div><p>Loading...</p></div>
+    if (!ss) return  (
+    <div>
+        <h3>StarShip(s)</h3>
+        <p>name: Loading...  model: Loading...</p>
+        {/* <p>Loading...</p> */}
+    </div>
+    )
     return (
         <div>
             <h3>StarShip(s)</h3>
-            <p>name: {ss.name ? ss.name : 'loading...'}  model:{ss.model ? ss.model : 'loading...'}</p>
+            <p>name: {ss.name}  model:{ss.model}</p>
         </div>
     )
 }
